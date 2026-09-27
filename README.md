@@ -7,6 +7,10 @@ A collection of agent skills.
 | Skill | Description |
 |-------|-------------|
 | [`copy-writer`](.agents/skills/copy-writer/SKILL.md) | Expert web copywriting for any UI text: headlines, subheads, body, CTAs, button labels, onboarding, empty states, errors, tooltips, and microcopy. Use when writing, rewriting, tightening, or critiquing copy for a web page or app screen, or when the user says the copy "isn't professional," "sounds off," or "needs a copywriter." Always establishes the copy's role, page context, audience, and goal before writing, and asks the user when any of those are unknown. |
+| [`ad-research`](.agents/skills/ad-research/SKILL.md) | Research target communities (e.g. Reddit) and the product's own data sources for ad inputs. Outputs research-brief.json for the ad-copy skill. Use when you need audience intelligence, pain points, community language, or real product proof for ads. |
+| [`ad-copy`](.agents/skills/ad-copy/SKILL.md) | Write high-converting Reddit ad copy with 3-round iteration. Reads research-brief.json (from ad-research), outputs README.md. Use when you have an ad concept and need audience-specific copy that sounds authentic to the target community and leads with real product proof. |
+| [`ad-design`](.agents/skills/ad-design/SKILL.md) | Create unique Canva designs for Reddit ads. Reads the ad's README.md (from the ad-copy skill), generates original visual concepts via Canva MCP. Use when you have ad copy and need a 1080x1080 Reddit ad image. |
+| [`ad-render`](.agents/skills/ad-render/SKILL.md) | Turn approved ad copy plus supplied images into a finished ad image at exact platform dimensions. Generates the design via Canva, exports to PNG, and refuses to ship anything that fails a visual QA gate. Use whenever the user asks to render, produce, redo, resize, or fix an ad visual, ad creative, ad image, or a set of size variants, or points at an ad folder containing ad.json. Also use when an existing ad visual is described as generic, off-brand, cropped, illegible, or "not production ready". This skill does visual production only; it does not write, rewrite, or strategise copy. |
 
 ## Installing a skill
 
@@ -32,9 +36,9 @@ cp -r wills-skills/.agents/skills/copy-writer ~/.agents/skills/
 
 **Try them in the skills repo itself:** clone this repo and open it as a project in your client. Clients that read `.agents/skills/` pick the skills up automatically.
 
-## After installing copy-writer
+## After installing a skill
 
-The skill ships with an example `references/app-context.md` describing a fictional product. Replace that file with your product's voice, audience, vocabulary, and copy rules. It is the only app-specific file in the skill; everything else is product-agnostic.
+Skills that need product-specific context ship exactly one swappable file, `references/app-context.md`, as a fill-in template. Replace it with your product's context — voice, audience, paths, data sources, brand tokens. It is the only app-specific file in each skill; everything else is product-agnostic.
 
 ## Using a skill
 
