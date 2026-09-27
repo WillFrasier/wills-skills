@@ -1,6 +1,6 @@
 # wills-skills
 
-A collection of agent skills for [Zed](https://zed.dev): reusable instruction modules that teach your coding agent how to do a specific job well.
+A collection of agent skills: reusable instruction modules that teach your AI coding agent how to do a specific job well. Each skill follows the Agent Skills format (a `SKILL.md` with `name` and `description` frontmatter), so any client that supports skills can use them: Zed, Claude Code, Cursor, GitHub Copilot, and others.
 
 ## Skills
 
@@ -10,7 +10,14 @@ A collection of agent skills for [Zed](https://zed.dev): reusable instruction mo
 
 ## Installing a skill
 
-Skills live in `.agents/skills/<skill-name>/`. Each folder is self-contained: `SKILL.md` plus its references and tests. Installing is just copying a folder.
+Skills live in `.agents/skills/<skill-name>/` in this repo. Each folder is self-contained: `SKILL.md` plus its references and tests. Installing is just copying a folder into the directory your client reads skills from.
+
+| Client | Project directory | Global directory |
+|--------|-------------------|------------------|
+| Zed | `<project>/.agents/skills/` | `~/.agents/skills/` |
+| Claude Code | `<project>/.claude/skills/` | `~/.claude/skills/` |
+
+Other clients that support the Agent Skills format have their own skills directory; check your client's docs and copy the folder there.
 
 **Add one skill to another project:**
 
@@ -20,6 +27,8 @@ mkdir -p <your-project>/.agents/skills
 cp -r wills-skills/.agents/skills/copy-writer <your-project>/.agents/skills/
 ```
 
+For Claude Code, use `.claude/skills` in place of `.agents/skills`.
+
 **Install globally (available in all your projects):**
 
 ```sh
@@ -28,7 +37,7 @@ mkdir -p ~/.agents/skills
 cp -r wills-skills/.agents/skills/copy-writer ~/.agents/skills/
 ```
 
-**Try them in the skills repo itself:** clone this repo and open it in Zed. Every skill in `.agents/skills/` loads automatically for that project.
+**Try them in the skills repo itself:** clone this repo and open it in a client that reads `.agents/skills/` (Zed does). Every skill loads automatically for that project.
 
 ## Using a skill
 

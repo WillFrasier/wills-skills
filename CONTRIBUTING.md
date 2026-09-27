@@ -9,7 +9,7 @@ This repo exists to author and share agent skills. Skills live in `.agents/skill
 3. Add `references/` files for depth the agent reads on demand.
 4. Add `tests/` with at least one concrete example input and its expected behavior.
 5. Add the skill to the catalog table in the root `README.md` (copy the description from the frontmatter).
-6. Test it: open this repo in Zed and run the skill against a case from `tests/`.
+6. Test it: open this repo in an agent that supports skills and run the skill against a case from `tests/`.
 
 ## Conventions
 
