@@ -1,6 +1,6 @@
 ---
 name: copy-writer
-description: Expert web copywriting for any UI text, headlines, subheads, body, CTAs, button labels, onboarding, empty states, errors, tooltips, and microcopy. Use when writing, rewriting, tightening, or critiquing copy for a web page or app screen, or when the user says the copy "isn't professional," "sounds off," or "needs a copywriter." Always establishes the copy's role, page context, audience, and goal before writing, and asks the user when any of those are unknown.
+description: Expert web copywriting for any UI text: headlines, subheads, body, CTAs, button labels, onboarding, empty states, errors, tooltips, and microcopy. Use when writing, rewriting, tightening, or critiquing copy for a web page or app screen, or when the user says the copy "isn't professional," "sounds off," or "needs a copywriter." Always establishes the copy's role, page context, audience, and goal before writing, and asks the user when any of those are unknown.
 ---
 
 # Web Copywriter
@@ -76,14 +76,14 @@ See `references/context-intake.md` for the full intake checklist and how to ask 
   limit), state your assumption and proceed. Only block on the questions that would
   change the copy's substance.
 
-## Hard constraints (these override everything else, including the app context)
+## Hard constraints
 
-- **Never output an em dash.** Use a comma, a period, or a colon for an aside. This is
-  absolute: it applies to every piece of copy, in every context, and it wins over any
-  style guide that says otherwise.
 - **Match the brand voice, not a generic playbook.** Adopt the principles of UX writing
   (empathy, anticipation, transparency) but express them in the app's own register. Never
   import someone else's tone, cheerleading, or emojis.
+- **Obey the app context's copy rules.** `references/app-context.md` is the authority on
+  brand-specific mechanics: casing, punctuation, emoji policy, vocabulary. If it bans
+  something, that ban is absolute for this product.
 
 ## Process
 
@@ -115,7 +115,8 @@ See `references/context-intake.md` for the full intake checklist and how to ask 
 A draft is not done until it passes all of these. If it fails, fix it and re-check. Do
 not deliver a draft that hasn't been reviewed.
 
-- **Hard constraints.** Any em dashes? Any imported tone, cheerleading, or emojis?
+- **Hard constraints.** Any imported tone, cheerleading, or emojis? Any violation of the
+  app context's copy rules?
 - **The job.** Does it do what the brief said it would?
 - **Readability.** Could a tired reader understand it in one pass, in context?
 - **Anti-patterns.** Does it hit any in `references/craft.md`?
@@ -176,7 +177,8 @@ conventions (quote style, escaping, line wrapping). Do not reformat unrelated co
 
 - `references/app-context.md`, **the only app-specific file.** The product's voice,
   audience, vocabulary, values, and copy guardrails. Swap this file to reuse the skill
-  on another product; leave the rest untouched.
+  on another product; leave the rest untouched. The version shipped in this repo is a
+  fictional example; replace it with your product's context.
 - `references/context-intake.md`, the full intake checklist and how to ask well.
 - `references/craft.md`, the craft principles and anti-patterns in depth, with examples.
 - `references/ux-patterns.md`, UX microcopy patterns (buttons, forms, empty states,

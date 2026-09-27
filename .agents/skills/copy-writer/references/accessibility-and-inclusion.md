@@ -34,8 +34,18 @@ polish, they are part of whether the copy works.
 
 - **Link text must stand alone.** "View the invoice," not "click here" or "read
   more." Screen-reader users often navigate link-to-link.
-- **Alt text describes meaning, not appearance.** "The Fair Play card deck spread
-  on a kitchen table," not "image1.png."
+- **Alt text describes meaning, not appearance.** "A wall calendar covered in
+ color
+-coded
+ family
+ events
+,
+"
+ not
+ 
+"image1
+.png
+."
 - **Don't put meaning only in an icon or color.** Pair it with text.
 - **Label controls with words, not symbols.** A button that shows "→" still needs
   an accessible name like "Next."

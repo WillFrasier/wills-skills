@@ -1,178 +1,111 @@
-# App Context, Visible (Family OS)
+# App Context (example, replace me)
 
-> **This is the only app-specific file in this skill.** Everything else
-> (`context-intake.md`, `craft.md`, `ux-patterns.md`, `accessibility-and-inclusion.md`)
-> is project-agnostic. To reuse this skill on another product, **replace this file**
-> with that product's context, brand voice, audience, vocabulary, guardrails, and
-> leave the rest untouched. Keep the section headings so the skill's instructions
-> still resolve.
+> **This is the only app-specific file in this skill, and the version shipped here
+> is a fictional example.** Everything else (`context-intake.md`, `craft.md`,
+> `ux-patterns.md`, `accessibility-and-inclusion.md`) is project-agnostic. To use
+> this skill on your product, **replace this file** with that product's context:
+> what it is, who it's for, how it sounds, and its copy rules. Keep the section
+> headings so the skill's instructions still resolve.
 
-The product is **Visible** (the codebase and older copy still say "Family OS").
-Tagline: *the household, run fairly*. A proactive household assistant for couples,
-inspired by Eve Rodsky's *Fair Play* and the care-justice movement.
+The example product is **Ledgerline**, a fictional invoicing and expense tracker
+for freelance designers. Every detail below is invented; swap all of it for your
+own product.
 
 ---
 
 ## 1. What the product is
 
-A fair-division operating system for the home. It makes the invisible work of a
-household **visible**, divides it **fairly**, and uses an assistant to do the
-**legwork** in between, so the running of a home feels less like a second job and
-more like a partnership.
+Ledgerline turns hours and receipts into invoices, and invoices into a clear
+picture of where the money comes from.
 
-- **The arc** (drives the homepage and every surface): **make it visible → divide it
-  fairly → it does the legwork → you reclaim the time.** Fairness is the mechanism;
-  reclaimed time and individual fulfillment are the point.
-- **The assistant** works in the background and *reports up*; it does not replace
-  judgment. Every draft, booking, or proposed action comes back to a person for an
-  okay.
-- **Status:** private early access. Opening to first households in fall 2026,
-  onboarding case by case. Copy must be honest about this, no fake urgency, no
-  implying instant access.
+- **The arc** (drives the homepage and every surface): **track the work → bill
+  it → get paid → know your numbers.** The payoff is less admin and fewer
+  surprises, not "financial superpowers."
+- **The assistant** drafts invoices and chases overdue payments as suggestions;
+  every draft comes back to the user for an okay before anything is sent.
+- **Status:** public beta. Copy must be honest about beta rough edges; no fake
+  urgency, no implying features that aren't shipped.
 
 ## 2. Audience
 
-**Who:** committed couples and co-parents running a household together who feel the
-imbalance and invisibility of domestic labor. Two people, not a team.
+**Who:** solo freelance designers and two-to-three-person studios who lose money
+to admin. They chose the work to make things, not to chase invoices.
 
-Two people are usually in the room, and they are not in the same place:
-
-- **The default parent / mental-load carrier**, the one who notices, remembers, and
-  plans. Exhausted, often resentful, has usually tried systems before (spreadsheets,
-  chore charts, Fair Play cards) that collapsed. Skeptical of anything that adds
-  admin.
-- **The partner who wants to help but can't see the work**, often defensive, often
-  believes they already carry their weight. Will not engage with anything that reads
-  as an accusation.
-
-**Segments** (from the beta plan): the "4% builders" already making their own
-systems; Fair Play–literate households who bought the book and stalled; mainstream
-logistics-drowning parents; working moms (breadwinner + burnout overlap).
-
-**Emotional state to write for:** tired, time-poor, wary of being sold to, and
-guarding against judgment. The reader is not looking for a lecture about fairness, 
-they are looking for relief.
+**Emotional state to write for:** behind on paperwork, mildly anxious about
+money, allergic to software that talks like a bank. They are not looking for a
+lecture on discipline; they are looking for relief.
 
 ## 3. Brand voice
 
-**The register:** calm, direct, gently knowing. The assistant has read the email; it
-isn't going to make a show of being clever about it. Imagine a quietly competent
-partner who has already pulled the file before the meeting.
+**The register:** calm, precise, on their side. A sharp bookkeeper who explains
+without condescending.
 
-**The house style guide** (canonical: `docs/design/design-system/README.md` →
-CONTENT FUNDAMENTALS):
+- **Casing.** Sentence case for all UI copy, buttons, headers, and dialogs.
+- **Pronouns.** Default to **you**. Refer to the assistant as **I** sparingly.
+- **Punctuation.** No exclamation marks. Periods on full sentences in body copy;
+  drop the period on single-line labels and button text.
+- **Numbers and money.** Currency as `$1,240`, not `$1240.00`, unless cents
+  matter. Dates absolute in ledgers, relative in feeds ("due in 3 days").
+- **Emoji.** None.
+- **What the voice avoids.** Finance-speak ("leverage your capital"),
+  productivity-speak ("supercharge"), exclamation marks, micro-celebrations.
 
-- **Casing.** Sentence case for all UI copy, buttons, headers, table columns,
-  dialogs. Title case is reserved for proper nouns, section names (Today, Tasks,
-  Ledger), and display-type splash moments.
-- **Pronouns.** Default to **you**. Refer to the assistant as **I** sparingly, only
-  when it would otherwise sound robotic. Most copy is structural and pronoun-free.
-- **Punctuation.** No em dashes, ever (hard rule). Use a comma, a period, or a colon
-  for an aside. Periods on full sentences in body copy; **drop the period on
-  single-line labels, captions, and button text.**
-- **Numbers and time.** Relative when the user is deciding ("due in 3 days");
-  absolute in the ledger/audit log. Currency `$1,240`, not `$1240.00` unless cents
-  matter.
-- **Emoji.** None. The brand uses drawn icons and small SVG glyphs. Unicode arrows
-  (→) are fine inline.
-- **What the voice avoids.** Productivity-speak ("supercharge", "streamline",
-  "AI-powered"), exclamation marks, micro-celebrations ("🎉 Done!"), "let's",
-  "we're on it", second-person plural. The assistant is one quiet voice, not a
-  chirpy team.
+**The voice in practice:**
 
-**The voice in practice** (from the design system):
-
-> ✓ "Drafted a reply. Review and send."
-> ✗ "I have drafted a reply for you. Please review and click to send it."
-
-**Empathy, in this voice.** Empathy here is a steady presence, not cheerleading, it
-sounds like "Drafted a reply. Review and send." or "That wasn't saved, here's how to
-fix it." See `craft.md` → Empathy for the general principle.
-
-**Marketing voice** is the same person, with more room: book-landing energy,
-editorial serif, oversized statement type, restraint. Examples in the wild:
-
-- "A home is the most important organization you will ever run."
-- "Two people. A hundred quiet responsibilities."
-- "Run it like you both matter."
-- "Running a home is care work. Care work is real work."
+> ✓ "Invoice #1042 was paid today. $3,200, net-30, on time."
+> ✗ "Great news! Your invoice has been successfully processed!"
 
 ## 4. Product vocabulary (use these terms exactly)
 
-- **Card / domain**, a durable area of household responsibility (Meals, Bills &
-  money, Kids & school, Health, Home & repairs, Calendar & social). Has an owner and
-  a **minimum standard** (what "done well" means).
-- **Task**, a concrete to-do. Owner, optional due date, priority, status.
-- **Check-in**, a discussion topic for the shared agenda, not a chore.
-- **Document**, a shared markdown note.
-- **Memory**, a time-bound household event, not a stable contact attribute.
-- **Member**, a household member.
-- **The assistant**, the proactive background service. One quiet voice.
-- **Reclaimed time / room to be a whole person**, the payoff (our term for Fair
-  Play's "Unicorn Space").
+- **Invoice**, a billable document sent to a client. Has a number, a status, a
+  due date.
+- **Expense**, money spent on a project, logged against it.
+- **Client**, the company or person who receives invoices.
+- **Project**, the container for tracked time and expenses.
+- **The assistant**, the background service that drafts and suggests. One quiet
+  voice.
 
-Do **not** use Fair Play's trademarked terms ("Unicorn Space", "Minimum Standard of
-Care", "the deck of 100 cards") as feature names. Credit the inspiration instead:
-*"Inspired by Eve Rodsky's Fair Play and the care-justice movement."*
+Do **not** use internal or borrowed terms as feature names ("billing engine",
+"revenue stack", "smart money flows").
 
 ## 5. Values (in our own words)
 
-- **Make the invisible visible.** If it's work, it gets a name and an owner.
-- **Fair, not equal.** A just split reflects real life and can be renegotiated.
-- **Your time has worth.** We measure success by time and attention handed back.
-- **Room to be a whole person.** Fairness exists so each of you reclaims space.
+- **Admin should take minutes, not evenings.**
+- **Clarity over cleverness.** A number the user understands beats an impressive
+  one.
+- **The user's money is their money.** We report; we don't judge.
+- **Nothing sends without a human okay.**
 
 ## 6. Copy guardrails (the hard-won ones)
 
-These come straight from the audience research. Violating them is the fastest way to
-lose this reader.
-
-- **Never weaponize the equity data.** Do not show a partner a "you do less than
-  your partner" comparison, and do not frame the product as proof of unfairness.
-  If load is shown, frame it neutrally ("Here's how our family's workload is
-  distributed") and let the engaged partner see it privately.
-- **Don't frame the product as fixing a partner.** It is a tool for the household,
-  not a solution to "your partner's problem." "Here's our schedule," not "Here's
-  proof you don't help enough."
-- **Lead with logistics, not fairness.** The reluctant partner engages with pickup
-  times, meal plans, and grocery lists, not a labor-imbalance dashboard. Utility
-  first; the equity conversation comes later, if at all.
-- **Grace over perfection.** No streak-shaming, no guilt-trip notifications, no
-  "you haven't logged in for 14 days." The door is always open.
-- **Be honest about early access.** No fake scarcity or urgency.
-- **No invented statistics.** Any care-work or happiness figure must link to a real
-  source (Fair Play Policy Institute, Gottman, Pew). Qualitative claims until
-  sourced.
-- **The assistant never acts alone.** Copy about automation must say it hands work
-  back for approval.
+- **Never shame late payers or imply the user is bad with money.** "The invoice
+  is past due" never becomes "You let this lapse."
+- **No invented statistics.** Any money or productivity figure must link to a
+  real source; otherwise stay qualitative.
+- **No fear-based urgency.** No "clients are slipping away!"
+- **The assistant never acts alone.** Copy about automation must say it hands
+  work back for approval.
 
 ## 7. Where the existing copy lives (match it)
 
-Read these before writing so new copy sits alongside the old without a seam:
+Read these before writing so new copy sits alongside the old without a seam.
+(Replace with your repo's real paths.)
 
 | What | Where |
 |---|---|
-| Marketing copy + FAQ + values + stats | `apps/web/components/marketing/marketing-content.ts` |
-| Onboarding copy + step data | `apps/web/components/welcome/welcome-content.ts` |
-| The AI project prompt (assistant voice) | `apps/web/lib/help/family-os-project-prompt.ts` |
-| The house style guide (canonical) | `docs/design/design-system/README.md` → CONTENT FUNDAMENTALS |
-| Positioning, arc, values, attribution | `docs/marketing/strategy/fair-play-alignment.md` |
-| SEO positioning + voice anti-patterns | `docs/marketing/strategy/seo-strategy.md` |
-| Audience voice (verbatim quotes) | `docs/marketing/research/socials/quote-bank-core-themes.md` |
-| Audience themes + what software can/can't fix | `docs/marketing/research/socials/source-assessment-and-theme-analysis.md` |
-| The buy-in problem + the seven patterns | `docs/marketing/research/socials/content/partner-buy-in-synthesis.md` |
-| Audience segments | `docs/marketing/beta/beta-sequencing-plan.md` |
+| Marketing copy + FAQ | `apps/web/components/marketing/content.ts` |
+| UI strings | `apps/web/lib/strings.ts` |
+| Assistant voice prompt | `apps/web/lib/assistant-prompt.ts` |
+| Style guide (canonical) | `docs/design/content-guidelines.md` |
 
 ## 8. Tone by surface
 
-- **Marketing / homepage:** editorial, manifesto-adjacent, warm but weighty. Serif
-  lead text. The arc, the mission, the values.
-- **Onboarding:** welcoming and low-pressure, but *not* apologetic. Give a reason to
-  fill things in rather than telling people it's optional. (See `craft.md` →
-  "Give a reason, not a disclaimer.")
+- **Marketing / homepage:** plain-spoken and confident; lead with the relief,
+  not the feature list.
+- **Onboarding:** welcoming and low-pressure, but not apologetic. Give a reason
+  to fill things in rather than telling people it's optional.
 - **In-product UI:** calm and structural. Report what happened; don't perform.
-  Sentence case, no periods on labels.
 - **Errors / empty states:** plain, unblaming, and useful. Say what happened and
-  what to do next. Never blame the user.
-- **Notifications:** neutral and depersonalized ("Pickup at 3pm tomorrow"), never
-  comparative or judgmental.
+  what to do next.
+- **Notifications:** neutral and specific ("Invoice #1042 is due tomorrow"),
+  never nagging or comparative.
