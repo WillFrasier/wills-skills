@@ -10,14 +10,7 @@ A collection of agent skills.
 
 ## Installing a skill
 
-Skills live in `.agents/skills/<skill-name>/` in this repo. Each folder is self-contained: `SKILL.md` plus its references and tests. Installing is just copying a folder into the directory your client reads skills from.
-
-| Client | Project directory | Global directory |
-|--------|-------------------|------------------|
-| Zed | `<project>/.agents/skills/` | `~/.agents/skills/` |
-| Claude Code | `<project>/.claude/skills/` | `~/.claude/skills/` |
-
-Other clients that support the Agent Skills format have their own skills directory; check your client's docs and copy the folder there.
+Skills live in `.agents/skills/<skill-name>/` in this repo. Each folder is self-contained: `SKILL.md` plus its references and tests. Installing is just copying a folder into your client's skills directory (Zed: `.agents/skills/`, Claude Code: `.claude/skills/`, other clients: see their docs).
 
 **Add one skill to another project:**
 
@@ -37,7 +30,7 @@ mkdir -p ~/.agents/skills
 cp -r wills-skills/.agents/skills/copy-writer ~/.agents/skills/
 ```
 
-**Try them in the skills repo itself:** clone this repo and open it in a client that reads `.agents/skills/` (Zed does). Every skill loads automatically for that project.
+**Try them in the skills repo itself:** clone this repo and open it as a project in your client. Clients that read `.agents/skills/` pick the skills up automatically.
 
 ## After installing copy-writer
 
