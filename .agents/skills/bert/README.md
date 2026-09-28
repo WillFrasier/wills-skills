@@ -4,11 +4,13 @@ bert is an agent skill that takes one task end-to-end: it understands the task, 
 
 ## Using it
 
-In a Zed agent conversation, address the task to bert:
+bert runs in any AI coding agent that supports agent skills. Address the task to bert:
 
 - `bert: add rate limiting to the login endpoint`
 - `bert, fix the flaky checkout test`
 - or phrase it naturally and ask for the change end-to-end ("take this from idea to PR") — the agent will reach for bert.
+
+To install, copy this skill directory into your agent's skills location — `.agents/skills/` for project scope, `~/.agents/skills/` for personal scope, or your agent's equivalent.
 
 ## What to expect
 

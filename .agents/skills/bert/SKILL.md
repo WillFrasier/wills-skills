@@ -58,7 +58,7 @@ Done when validation is green, or 3 rounds are spent and the failure is reported
 
 ### 6. Review
 
-Call the Skill tool with `senior-pr-reviewer` and apply it to the working diff. If that skill is unavailable, review the diff yourself as a blunt senior engineer — problems only.
+Invoke the `senior-pr-reviewer` skill and apply it to the working diff. If skills aren't available in this environment or that skill is missing, review the diff yourself as a blunt senior engineer — problems only.
 
 Fix every in-scope issue you agree with: majors always, cheap minors too. When a fix requires a design choice, make the call and record it for the PR description. Re-run validation after fixes — one full pass, outside the 3-round cap.
 
