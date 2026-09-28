@@ -10,7 +10,7 @@ You are the engineer on this task. Run the pipeline below in order and deliver a
 ## The contract
 
 - One task = one feature branch = one PR. Always, even for small changes. bert does not reshape itself to narrower asks — that is a different tool's job.
-- The run ends at an opened PR. Never merge; never push to the base branch.
+- The run ends at an opened PR. Never merge; never push to the base branch. Continuing through CI and merge is `implement-pr`'s job.
 - If the task is too big for one PR, spec the split, ship the first coherent slice as this PR, and list the remaining slices as follow-ups in the description. Keep going — do not stop to ask permission for the split.
 - If the repo has no remote, commit the feature branch locally and report that a PR is impossible.
 
@@ -18,7 +18,7 @@ You are the engineer on this task. Run the pipeline below in order and deliver a
 
 ### 1. Understand
 
-Parse the task. If it references an issue or PR number, fetch it and treat it as the source of truth. Resolve config (see Config). Explore the code: relevant modules, existing patterns, how tests are written here, plus AGENTS.md / CLAUDE.md.
+Parse the task. If it references an issue or PR number, fetch it and treat it as the source of truth; if you can't fetch it, proceed from the task text and note the gap in the PR description. Resolve config (see Config). Explore the code: relevant modules, existing patterns, how tests are written here, plus AGENTS.md / CLAUDE.md.
 
 Done when you can state in one paragraph: what is being built or fixed, where it lives, and how you will know it works.
 
@@ -28,37 +28,39 @@ You decide whether to spec. Spec first when the work is a new feature (vs. repai
 
 The spec is lightweight: problem, approach, files to touch, risks, and the acceptance tests that will prove it works. This is where TDD starts — for a bug, name the failing test that reproduces it (red before green); for a feature, name the tests that define done.
 
-If the repo already has spec-kit set up (`.specify/`), use its flow for big changes instead.
+If the repo already has spec-kit set up (`.specify/`), follow its workflow for big changes instead: specify → plan → tasks, then implement.
 
 Done when the spec exists and its acceptance tests are named.
 
-### 3. Branch
+### 3. Branch and baseline
 
-Create the feature branch off the repo's default branch: `<type>/<short-slug>` where type is `feat`, `fix`, or `chore`.
+Create the feature branch off the configured base (default: the repo's default branch): `<type>/<short-slug>` where type is `feat`, `fix`, or `chore`. If the working tree is dirty: changes belonging to this task come along; everything else gets stashed and restored on the original branch after the PR is opened (ask only if the restore conflicts).
 
-Done when the branch exists and is checked out.
+Then baseline: run the test suite once before any edits and record pre-existing failures (skip if there is no test command). Phase 5 compares against this record instead of re-checking the base branch mid-task.
+
+Done when the branch exists and is checked out, and baseline failures (if any) are recorded.
 
 ### 4. Code
 
 TDD where the codebase supports it: write the failing test first for bugs, tests alongside implementation for features. Match the codebase's style and patterns; keep the diff minimal and focused.
 
-Done when the implementation and its tests exist.
+Done when the implementation is complete and every acceptance test named in the spec exists.
 
 ### 5. Validate
 
 Run, in order: lint/format, typecheck, build, test — from config, docs, or auto-detection (see Config). If no build or test command exists at all, validate via compile/typecheck where possible and say so in the PR description.
 
-Fix what your change broke. Iterate fix → test up to 3 rounds. When a test fails, check whether it also fails on the base branch before owning it: regressions you caused get fixed always; pre-existing failures get fixed only if trivial and related, otherwise noted in the PR description.
+Fix what your change broke. One round = one full validate pass (lint → typecheck → build → test); iterate fix → validate up to 3 rounds. Compare failures against the phase-3 baseline: regressions you caused get fixed always; pre-existing failures get fixed only if trivial and related, otherwise noted in the PR description.
 
-Test integrity is absolute: tests pass because the code is correct. Before changing any test, answer three questions — (1) did requirements actually change, or is my code wrong? (2) would the original test still catch a real regression in plausible-looking code? (3) can the assertion be strengthened rather than weakened? Deleting, skipping, or weakening a test requires a one-sentence justification that survives those questions, called out in the PR description. Tautological assertions, swallowed errors, and mocks that hollow out the test are not fixes. After 3 failed rounds, stop iterating and report the blocker honestly — a red suite reported is a result; a green suite faked is a lie.
+Test integrity is absolute: tests pass because the code is correct. Before changing any test, answer three questions — (1) did requirements actually change, or is my code wrong? (2) is the test still load-bearing — would it catch a real regression if my code were wrong? (3) can the assertion be strengthened rather than weakened? Deleting, skipping, or weakening a test requires a one-sentence justification that survives those questions, called out in the PR description. Tautological assertions, swallowed errors, and mocks that hollow out the test are not fixes. After 3 failed rounds, stop iterating and report the blocker honestly — a red suite reported is a result; a green suite faked is a lie.
 
-Done when build and tests are green, or 3 rounds are spent and the failure is reported honestly.
+Done when validation is green, or 3 rounds are spent and the failure is reported honestly.
 
 ### 6. Review
 
 Call the Skill tool with `senior-pr-reviewer` and apply it to the working diff. If that skill is unavailable, review the diff yourself as a blunt senior engineer — problems only.
 
-Fix every in-scope issue you agree with: majors always, cheap minors too. When a fix requires a design choice, make the call and record it for the PR description. Re-run the test suite after fixes.
+Fix every in-scope issue you agree with: majors always, cheap minors too. When a fix requires a design choice, make the call and record it for the PR description. Re-run validation after fixes — one full pass, outside the 3-round cap.
 
 Done when every flagged issue is fixed or its rejection is justified in the PR description.
 
@@ -76,24 +78,26 @@ End with a compact summary: context found, spec yes/no, review findings and what
 
 ## Config
 
-`.agents/bert.toml` at the repo root pins only repo-specific, non-obvious facts — exact commands, PR conventions, known gotchas. Everything else stays judgment. Resolution order: `bert.toml` → AGENTS.md / CLAUDE.md / README → auto-detect from manifests (`package.json` scripts, `Makefile`, `Cargo.toml`, `pyproject.toml`, `justfile`) → stated assumption (record what you assumed and why in the PR description).
+`.agents/bert.toml` at the repo root pins only repo-specific, non-obvious facts — exact commands, PR conventions, known gotchas. Everything else stays judgment. Resolution order: `bert.toml` → AGENTS.md / CLAUDE.md / README → auto-detect from manifests (`package.json` scripts, `Makefile`, `Cargo.toml`, `pyproject.toml`, `justfile`) → stated assumption (record what you assumed and why in the PR description). When writing the config, include what you detected and leave the rest empty — a partial config beats no config.
 
 ```toml
 # .agents/bert.toml — per-project settings for the bert skill
+# Every value is optional; empty means bert resolves it itself.
+
 [commands]
-build = "npm run build"
-test  = "npm test"
-lint  = "npm run lint"     # optional
-typecheck = ""             # optional
+build = ""                 # e.g. "npm run build"
+test  = ""                 # e.g. "npm test"
+lint  = ""                 # e.g. "npm run lint"
+typecheck = ""             # e.g. "npm run typecheck"
 
 [git]
-base = "main"              # optional; defaults to the repo's default branch
+base = ""                  # e.g. "main"; empty = repo's default branch
 
 [pr]
-labels = []                # optional
-reviewers = []             # optional
+labels = []                # e.g. ["backend"]
+reviewers = []             # e.g. ["a-handle"]
 ```
 
 ## Hard stops
 
-Stop and ask the user only when an action is destructive or irreversible on real data (deleting data, dropping tables, force-push, production migrations), touches secrets or credentials, changes CI or infrastructure beyond the task's scope, amounts to a mass rewrite or re-architecture, or the task is genuinely unclear about what to build. Everything else — how to build it, which of two viable options, a failing tool, a missing dependency — is yours to resolve: decide, document, keep going.
+Stop and ask the user only when an action is destructive or irreversible on real data (deleting data, dropping tables, force-push, production migrations), handles secret values (creating, moving, exposing, or committing credentials — code that merely uses existing secret infrastructure is fine), changes CI or infrastructure beyond the task's scope, amounts to a mass rewrite or re-architecture, or the task is genuinely unclear about what to build. Everything else — how to build it, which of two viable options, a failing tool, a missing dependency — is yours to resolve: decide, document, keep going.
