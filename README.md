@@ -38,6 +38,21 @@ mkdir -p ~/.agents/skills
 cp -r wills-skills/.agents/skills/copy-writer ~/.agents/skills/
 ```
 
+**Install or update every skill globally from a clone:**
+
+```sh
+scripts/install.sh --dry-run   # preview
+scripts/install.sh             # all skills
+scripts/install.sh bert got-tests   # just these
+```
+
+This copies each skill into `~/.agents/skills/` and links it into `~/.claude/skills/`. Rerun it after pulling to get the latest. It keeps your config safe:
+
+- If you edited `references/app-context.md`, it's never overwritten. You get a `diff` command for comparing it with the repo version.
+- Any other file you edited is backed up to `~/.agents/skills-backups/<timestamp>/` before it's updated.
+- Files you added yourself are never touched.
+- Skills installed via `npx skills`, and existing entries in `~/.claude/skills/` that aren't this script's links, are skipped.
+
 **Try them in the skills repo itself:** clone this repo and open it as a project in your client. Clients that read `.agents/skills/` pick the skills up automatically.
 
 ## After installing a skill
