@@ -28,3 +28,5 @@ name: skill-name
 description: What the skill does. Use when <trigger conditions>, or when the user says "<phrases>".
 ---
 ```
+
+Optional: `disable-model-invocation: true` hides a skill from automatic loading in Claude Code, so it runs only when the user types its name. Other clients ignore the key, so the description must still say to load the skill only on explicit request (see `proactive`).

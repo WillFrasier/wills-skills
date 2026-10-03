@@ -14,7 +14,7 @@ A collection of agent skills.
 | [`senior-pr-reviewer`](.agents/skills/senior-pr-reviewer/SKILL.md) | Senior engineer PR reviewer. Be direct and blunt — flag problems only, no praise. Use proactively after writing or modifying code, before opening a PR, or when the user asks to review a branch, diff, or PR ("review this PR", "code review", "review my changes", "review the diff"). Covers logic correctness, security, structure, code smells, NIH/reinventing the wheel, stack-specific patterns, type safety, and test coverage. |
 | [`bert`](.agents/skills/bert/SKILL.md) | bert takes one task end-to-end — understand, spec, code, review, test, then ship a feature branch and open a PR. Use when the user says "bert", gives bert a task, or asks for a change to be implemented and delivered start-to-finish as a pull request. |
 | [`got-tests`](.agents/skills/got-tests/SKILL.md) | Review a pull request or branch diff and decide whether the changed code has enough unit tests to catch real bugs, then name the specific missing tests, each tied to a plausible bug it would catch. Language and framework agnostic. Use whenever the user asks if a PR has enough tests, wants a test gap or test quality review, asks "what could break", "are we missing tests", "is this safe to merge", or points at a diff, branch, or PR and cares about test protection, even if they never say "unit tests". Also use when reviewing a PR that changes behavior but touches few or no tests. |
-| [`proactive`](.agents/skills/proactive/SKILL.md) | Proactive mode. The agent owns the task like a senior engineer, does everything it can itself, makes the sensible calls, and stops only on the stop conditions in references/app-context.md. Invoke with /proactive. |
+| [`proactive`](.agents/skills/proactive/SKILL.md) | Proactive mode, where the agent owns the task like a senior engineer, does everything it can itself, and stops only on the user's configured stop conditions. Use only when the user types /proactive or asks to turn on proactive mode, or when another skill tells you to load it. Never load it on your own initiative. |
 
 ## Installing a skill
 
@@ -42,7 +42,7 @@ cp -r wills-skills/.agents/skills/copy-writer ~/.agents/skills/
 
 ## After installing a skill
 
-Skills that need product-specific context ship exactly one swappable file, `references/app-context.md`, as a fill-in template. Replace it with your product's context — voice, audience, paths, data sources, brand tokens. It is the only app-specific file in each skill; everything else is product-agnostic.
+Skills that need product-specific context ship exactly one swappable file, `references/app-context.md`, as a fill-in template. Replace it with your product's context: voice, audience, paths, data sources, brand tokens. It is the only app-specific file in each skill; everything else is product-agnostic. Some skills (e.g. `proactive`) ship working defaults in that file instead of an example, so edit it to taste rather than replace it.
 
 ## Using a skill
 

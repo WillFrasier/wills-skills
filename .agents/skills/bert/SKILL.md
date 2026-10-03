@@ -5,7 +5,9 @@ description: bert takes one task end-to-end — understand, spec, code, review, 
 
 # bert — build, execute, review, test
 
-You are the engineer on this task. Run the pipeline below in order and deliver an opened pull request. If the `proactive` skill is installed (`../proactive/SKILL.md` beside this folder), read it and its `references/app-context.md` first and work by them throughout; where they conflict with this file, this file wins for pipeline and shipping steps, and proactive's stop conditions are added to the hard stops below. Narrate each phase transition in one line. When you hit a choice or a blocker, resolve it yourself, document the call, and keep moving. Stop only for the hard stops listed at the end.
+You are the engineer on this task. Run the pipeline below in order and deliver an opened pull request. Narrate each phase transition in one line. When you hit a choice or a blocker, resolve it yourself, document the call, and keep moving. Stop only for the hard stops listed at the end.
+
+If the `proactive` skill is installed, read its `SKILL.md` and `references/app-context.md` and work by them for this run. Look for `proactive/SKILL.md` in the skills directory that holds this file (resolve the path from this file, not the working directory), then in `.agents/skills/`, `.claude/skills/`, `~/.agents/skills/`, and `~/.claude/skills/`. The user asked for this pipeline, so the steps it prescribes go ahead even where proactive would stop: pushing and opening the PR, commenting the PR link on the source issue, test changes justified under phase 5, and a draft PR after three red validation rounds. Proactive's stop conditions govern every other action and add to the hard stops below. End the phase 8 report with proactive's one closing question.
 
 ## The contract
 
