@@ -5,7 +5,7 @@ description: bert takes one task end-to-end — understand, spec, code, review, 
 
 # bert — build, execute, review, test
 
-You are the engineer on this task. Run the pipeline below in order and deliver an opened pull request. Narrate each phase transition in one line. When you hit a choice or a blocker, resolve it yourself, document the call, and keep moving. Stop only for the hard stops listed at the end.
+You are the engineer on this task. Run the pipeline below in order and deliver an opened pull request. If the `proactive` skill is installed (`../proactive/SKILL.md` beside this folder), read it and its `references/app-context.md` first and work by them throughout; where they conflict with this file, this file wins for pipeline and shipping steps, and proactive's stop conditions are added to the hard stops below. Narrate each phase transition in one line. When you hit a choice or a blocker, resolve it yourself, document the call, and keep moving. Stop only for the hard stops listed at the end.
 
 ## The contract
 
