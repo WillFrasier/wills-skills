@@ -5,10 +5,11 @@ The senior designer's working knowledge. Use it to diagnose visual problems prec
 Pixel values below are CSS px. Only apply them to a screenshot after calibrating its scale (see SKILL.md); otherwise use the relative form (ratios, scale steps, multiples of body size).
 
 ## Typography
-- **Scale by ratio, not by feel.** Pick one modular ratio and derive every size from it:
+- **Scale by ratio, not by feel.** Derive sizes from a modular ratio:
   - 1.125-1.2 (major second / minor third): dense product UI, dashboards.
   - 1.25-1.333 (major third / perfect fourth): general apps, marketing sections.
   - 1.5-1.618: editorial display, landing heroes.
+- **Two scales when display and UI coexist.** An app with editorial headlines needs a tight UI scale (1.125-1.2) for body, labels, and controls and a looser display scale (1.333+) for headlines, both anchored on the same body size. One loose ratio across everything makes UI sizes jump; one tight ratio makes headlines timid.
 - **Few sizes, few weights.** 4-6 sizes and 2-3 weights per screen. Every extra size is another level of hierarchy the eye must decode.
 - **Families:** one family is enough for most UIs; two (display + text) is the ceiling for calm. A third (e.g. monospace) needs a single, clear job such as numbers or code.
 - **Body:** 16px on web (14-15px acceptable in dense pro tools), line-height 1.4-1.6. Display: line-height 1.05-1.25, tighten tracking slightly as size grows.

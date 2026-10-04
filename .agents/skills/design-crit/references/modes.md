@@ -5,7 +5,7 @@
 Several versions of the same screen, and the user must choose or combine.
 
 1. Confirm the brief once; it applies to every variant.
-2. Score each variant against the job/need and the primary action first, craft second. Skip variants that fail goal fit with one line each.
+2. Score each variant against the need and the primary action first, craft second. Dismiss variants that fail need fit in one line each.
 3. Output:
    - Ranking: best to worst, one line of reasoning each.
    - Keep / kill: which variant to carry forward, and which to drop outright.

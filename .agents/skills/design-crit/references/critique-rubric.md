@@ -2,7 +2,7 @@
 
 Work bottom-up: a failure in an earlier layer outranks polish in a later one.
 
-## 1. Goal fit
+## 1. Need fit
 - 5-second test: what is this, who is it for, what do I do next?
 - Is the primary action the most prominent interactive element? What competes with it?
 - Does the page hierarchy match the stated priority order?
@@ -24,6 +24,7 @@ Work bottom-up: a failure in an earlier layer outranks polish in a later one.
 - Target size (about 24 CSS px minimum, 44 preferred on touch). Calibrate scale first (see SKILL.md); otherwise judge relative to body text.
 - Reliance on color alone, icon-only buttons without labels, placeholder-as-label.
 - Visible focus cannot be judged from a static shot; flag as not judged.
+- Dark mode is optional: critique it only if a dark screenshot is shared (check contrast and elevation separately; dark surfaces need lighter, not darker, raised layers). Its absence is not a finding.
 
 ## 4. Visual craft (use `craft.md` for values and diagnostics)
 - Hierarchy: size, weight, color, and space doing distinct jobs.
@@ -39,7 +40,7 @@ Work bottom-up: a failure in an earlier layer outranks polish in a later one.
 ## 5. Style fidelity
 - Compare against the style target from the brief (inferred from the mock, a preset, or the brand adjectives).
 - Name where it delivers the style and where it drifts. Mixed signals (for example neubrutalist borders with soft glass shadows) are findings.
-- If a style conflicts with the audience or goal, say so plainly.
+- If a style conflicts with the audience or need, say so plainly.
 
 ## 6. Trend context
 - What reads current vs dated, and does it matter for this audience?
