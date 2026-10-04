@@ -36,6 +36,7 @@ How to use: trends are context for judging fit, never a checklist to impose. Rec
 - Generative or adaptive UI that explains what it did and lets users undo.
 
 ### Other signals
+- Calm interfaces: lower cognitive load, fewer visual effects, visible defaults and clear content hierarchy (Envato).
 - Minimalism with personality: bright accents, bold type, custom graphics, mascots.
 - Buttonless or gesture-led UI on mobile (verify discoverability).
 - Dark mode as a first-class theme, not an afterthought.
@@ -51,4 +52,12 @@ How to use: trends are context for judging fit, never a checklist to impose. Rec
 - Placeholder-looking AI imagery with obvious tells.
 
 ## Sources used for this review
-tubikstudio.com blog (7 UI design trends of 2026), trends.daisyui.com (18 UI design trends for 2026), wannathis.one, pixelplex.io, cleveroad.com, wildnetedge.com, creativebloq.com via tutkit.com. The "dated or risky" list is editorial judgment, not sourced.
+Verified 2026-10-04:
+- Tubik, "What's Next: 7 UI Design Trends of 2026": https://blog.tubikstudio.com/ui-design-trends-2026/
+- daisyUI, UI design trends: https://trends.daisyui.com/
+- Creative Bloq, "Texture, warmth and tactile rebellion: the big graphic design trends for 2026": https://www.creativebloq.com/design/graphic-design/texture-warmth-and-tactile-rebellion-the-big-graphic-design-trends-for-2026
+- Envato, "UX/UI design trends for 2026: calm interfaces, transparent AI and the end of visual theatrics": https://elements.envato.com/learn/ux-ui-design-trends
+
+Cited in the original brief but not re-verified: wannathis.one, pixelplex.io, cleveroad.com, wildnetedge.com, tutkit.com. Confirm or replace on the next refresh.
+
+The "dated or risky" list is editorial judgment, not sourced.

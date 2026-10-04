@@ -2,6 +2,8 @@
 
 The senior designer's working knowledge. Use it to diagnose visual problems precisely and to prescribe moves with real values. These are defaults with reasons, not laws: break one when the need calls for it, and say why.
 
+Pixel values below are CSS px. Only apply them to a screenshot after calibrating its scale (see SKILL.md); otherwise use the relative form (ratios, scale steps, multiples of body size).
+
 ## Typography
 - **Scale by ratio, not by feel.** Pick one modular ratio and derive every size from it:
   - 1.125-1.2 (major second / minor third): dense product UI, dashboards.
@@ -43,7 +45,7 @@ The senior designer's working knowledge. Use it to diagnose visual problems prec
 - **Shadows:** one elevation system (2-3 levels). Mixing shadow styles signals mixed origins.
 
 ## Calm vs busy (diagnostic)
-Count distinct treatments: container styles, label styles, type sizes, border styles, accent uses. Above roughly 3 of any one kind, the page reads busy regardless of content volume. Cutting treatments usually buys more calm than cutting content.
+List the distinct treatments of each kind (container styles, label styles, type sizes, border styles, accent uses) and what each one means. A treatment earns its place only if it maps to a distinct role or state the user needs to tell apart. Two styles for the same kind of thing (for example two card styles for tasks) is a finding; three styles that each map to a different role is not. Unearned variety reads busy regardless of content volume, so cutting treatments usually buys more calm than cutting content.
 
 ## Mobile translation
 - Stack by priority, not by desktop column order.
