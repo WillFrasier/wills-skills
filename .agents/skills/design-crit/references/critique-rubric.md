@@ -7,6 +7,7 @@ Work bottom-up: a failure in an earlier layer outranks polish in a later one.
 - Is the primary action the most prominent interactive element? What competes with it?
 - Does the page hierarchy match the stated priority order?
 - Is there proof, context, or friction-reduction right where the decision happens?
+- Does the screen serve the underlying need, not just the stated feature?
 
 ## 2. Usability
 - Nielsen heuristics: visibility of status, match to real world, user control, consistency, error prevention, recognition over recall, flexibility, minimalism, error recovery, help.
@@ -21,7 +22,7 @@ Work bottom-up: a failure in an earlier layer outranks polish in a later one.
 - Reliance on color alone, icon-only buttons without labels, placeholder-as-label.
 - Visible focus cannot be judged from a static shot; flag as not judged.
 
-## 4. Visual craft
+## 4. Visual craft (use `craft.md` for values and diagnostics)
 - Hierarchy: size, weight, color, and space doing distinct jobs.
 - Type scale: count of sizes and weights; consistency; pairing.
 - Spacing rhythm: consistent scale vs arbitrary gaps; grouping by proximity.
@@ -29,6 +30,8 @@ Work bottom-up: a failure in an earlier layer outranks polish in a later one.
 - Color roles: neutral, brand, semantic; accent used sparingly.
 - Component consistency: buttons, inputs, cards, radii, shadows, iconography.
 - Imagery quality and relevance; placeholder or stock tells.
+- Composition: one clear focal point, reading path, column spans, split proportions.
+- Busy vs calm: count distinct treatments (containers, labels, sizes, borders); variety, not volume, causes busyness.
 
 ## 5. Style fidelity
 - Compare against the chosen preset and the 3 brand adjectives.

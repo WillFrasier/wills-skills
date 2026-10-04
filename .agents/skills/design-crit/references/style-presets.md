@@ -1,6 +1,6 @@
 # Style presets
 
-Refresh every 6-12 months. Offer 6-8 of these that plausibly fit the page, not all twelve, plus "Other / mix". Always accompany with a one-line description. Example sites are anchors the user can look up; verify they still match before citing.
+Refresh every 6-12 months. Offer only the presets that plausibly fit the page, best first, never all twelve: up to the choice tool's cap (often 4, with "Other" added by the tool), or up to 6 in plain text, plus "Other / mix". Mark your recommendation. Always accompany each with a one-line description. If the user is unsure, recommend one preset or a named blend (e.g. "Editorial headings + data-dense lists") and say why. Example sites are anchors the user can look up; verify they still match before citing.
 
 | Preset | Signature traits | Typical fit |
 |---|---|---|
