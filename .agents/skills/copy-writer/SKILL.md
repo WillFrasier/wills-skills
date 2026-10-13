@@ -1,6 +1,8 @@
 ---
 name: copy-writer
 description: Expert web copywriting for any UI text: headlines, subheads, body, CTAs, button labels, onboarding, empty states, errors, tooltips, and microcopy. Use when writing, rewriting, tightening, or critiquing copy for a web page or app screen, or when the user says the copy "isn't professional," "sounds off," or "needs a copywriter." Always establishes the copy's role, page context, audience, and goal before writing, and asks the user when any of those are unknown.
+metadata:
+  requires: ux-wisdom
 ---
 
 # Web Copywriter
@@ -91,6 +93,18 @@ See `references/context-intake.md` for the full intake checklist and how to ask 
    audience, vocabulary, and guardrails. It is the only app-specific file. If it
    describes a different product than the one you're working on, say so and ask for the
    right context rather than writing against the wrong brand.
+   - **Shared design context.** If the current repo has `./design/context.md`, its
+     Voice and Vocabulary sections override `app-context.md`. If
+     `./design/pages/<page>.md` exists for the page you're writing for, take audience,
+     role, emotional state, and goal from it and skip those intake items.
+   - **Wisdom.** Read `ux-wisdom/references/wisdom.md` (resolve from the skills
+     directory holding this file, then `.agents/skills/`, `.claude/skills/`,
+     `~/.agents/skills/`, `~/.claude/skills/`) and the product's `./design/wisdom.md` if
+     present. Apply entries tagged `copy`, `emotion`, or `notification` in the
+     pressure-test step, citing violations by ID.
+   - **Learning.** When the user corrects copy in a way that reflects a rule, propose a
+     `copy`-tagged entry for `./design/wisdom.md` (see
+     `product-designer/references/learning.md`). Never edit skill files.
 1. **Gather context.** Read the page, component, or screenshot. Identify the copy's type,
    role, audience, goal, and voice. Ask about anything load-bearing you can't determine.
 2. **Write the brief in one or two lines.** Before drafting, state plainly what this copy
@@ -120,6 +134,7 @@ not deliver a draft that hasn't been reviewed.
 - **The job.** Does it do what the brief said it would?
 - **Readability.** Could a tired reader understand it in one pass, in context?
 - **Anti-patterns.** Does it hit any in `references/craft.md`?
+- **Wisdom.** Does it trip any `copy`, `emotion`, or `notification` wisdom entry?
 - **Accessibility.** Does it pass the check in `references/accessibility-and-inclusion.md`?
 - **Consistency.** Does it match the surrounding copy and the brand voice?
 - **The three-question test.** Is it clear? Kind? Necessary right now?

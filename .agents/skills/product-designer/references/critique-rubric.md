@@ -21,7 +21,7 @@ Work bottom-up: a failure in an earlier layer outranks polish in a later one.
 ## 3. Accessibility (WCAG 2.2 AA unless told otherwise)
 - Text contrast (appears below 4.5:1 for body, 3:1 for large text or UI components?).
 - Body text size and line length; small gray-on-gray captions.
-- Target size (about 24 CSS px minimum, 44 preferred on touch). Calibrate scale first (see SKILL.md); otherwise judge relative to body text.
+- Target size (about 24 CSS px minimum, 44 preferred on touch). Calibrate scale first (see `critique.md`, Scale and measurement); otherwise judge relative to body text.
 - Reliance on color alone, icon-only buttons without labels, placeholder-as-label.
 - Visible focus cannot be judged from a static shot; flag as not judged.
 - Dark mode is optional: critique it only if a dark screenshot is shared (check contrast and elevation separately; dark surfaces need lighter, not darker, raised layers). Its absence is not a finding.
