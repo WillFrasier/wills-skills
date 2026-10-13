@@ -84,7 +84,7 @@ Ask in this order, skipping any already answered with high confidence:
 Output in this order:
 
 1. **What I can tell from the page** (3-5 lines): archetype, baseline job, the key inferences. This shows your work and lets the user correct you without a question.
-2. **Questions** (3-7), via the choice tool.
+2. **Questions** (3-7), via the choice tool. If the page fits no archetype well, say so in item 1 without assigning the nearest archetype, and make question 1 the page's job ("what is this page for?"), ahead of trigger, feeling, or any other question.
 3. After answers: the **brief** in full, with sources, as `status: draft`. Ask for approval.
 4. On approval, write `./design/pages/<page>.md` with `status: approved` and a changelog entry.
 

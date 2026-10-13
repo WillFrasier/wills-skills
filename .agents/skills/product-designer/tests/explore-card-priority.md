@@ -12,3 +12,10 @@
 - Shows the AI suggestion only with its reason/source (W48) or demotes it.
 - Reads owner and "last edited by" through both partners' eyes (W59, W60); flags surveillance risk.
 - Includes a success signal and the cheapest test.
+
+## Run log
+
+| Date | Result | Notes |
+|---|---|---|
+| 2026-10-13 | Partial | Blind subagent with SKILL.md and references only. Passed all but moment model: trigger/arrival/exit not stated as separate lines. Fixed in explore.md (three labeled lines required). |
+| 2026-10-13 | Pass | Re-run after the explore.md fix. |

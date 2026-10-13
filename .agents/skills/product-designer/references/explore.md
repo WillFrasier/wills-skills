@@ -7,6 +7,10 @@ For open design questions at two zoom levels:
 
 Explore uses the full pipeline. For a quick component question, run steps 1, 4, and the wisdom check only, and say you did.
 
+Page-level questions never take the quick path: step 3 is mandatory, and the answer must show 2-3 options with different bets before it converges on one. A single recommended direction is not a substitute.
+
+In step 1, always state trigger, arrival state, and exit state as three separate labeled lines, even on the quick path.
+
 ## 1. Model the moment
 
 Fill this before any design. Pull from the page brief; infer what's missing and label it `Hypothesis` with what would confirm it.

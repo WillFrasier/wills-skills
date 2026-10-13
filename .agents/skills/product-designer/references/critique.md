@@ -43,7 +43,7 @@ Evaluate lower layers first. A beautiful page that fails at its job is still fai
 
 **Severity:**
 - Critical: defeats the need or blocks the primary action.
-- High: measurably degrades the need, or fails the accessibility target.
+- High: measurably degrades the need, or fails the accessibility target. Failing the target is High even when the element is small (an icon-only control under the minimum target size, or with no accessible label, is High, not Medium).
 - Medium: adds friction, inconsistency, or noise.
 - Polish: craft refinement only.
 
@@ -55,7 +55,7 @@ Rules:
 
 ## Output format (Phase 3)
 
-Budget: at most 10 detailed findings. Omit any layer with nothing worth saying. Polish findings: none at exploration or wireframe; at most 2 at high-fidelity; allowed at live.
+Budget: at most 10 detailed findings. Count them before sending; if over 10, merge findings that share a cause (for example all contrast issues, or all inconsistent-treatment issues under one) or drop the lowest-severity ones. Merged findings must still name each flaw specifically. Omit any layer with nothing worth saying. Polish findings: none at exploration or wireframe; at most 2 at high-fidelity; allowed at live.
 
 1. Verdict: 2-3 sentences on how well this serves the need, with your point of view.
 2. The direction: the one idea that should organize the redesign (e.g. "status first, capture second, everything else quiet").

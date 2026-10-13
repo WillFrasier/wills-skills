@@ -194,7 +194,7 @@ tags: [decision, onboarding] · evidence: moderate · status: approved
 - Principle: Effort accelerates as people near a goal, and a head start increases completion. Show progress, and count work already done.
 - Classic failure: Setup starting at 0% even though the user already provided useful data.
 - Detection signal: Multi-step setup with no progress signal, or progress that ignores completed work.
-- Exception: Progress bars on infinite or unbounded work become guilt meters (see W40).
+- Exception: Progress bars on infinite or unbounded work become guilt meters (see W53, W55).
 - Source: Kivetz et al. 2006 (goal gradient); Nunes & Drèze 2006 (endowed progress).
 
 ### W21. Experiences are remembered by peak and end

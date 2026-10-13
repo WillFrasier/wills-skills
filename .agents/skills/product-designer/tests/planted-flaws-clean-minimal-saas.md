@@ -77,3 +77,5 @@ Each must appear as a finding (wording free) at or above the listed severity.
 | Date | Result | Notes |
 |---|---|---|
 | 2026-10-04 | Pass (9/10, F4 partial) | Blind subagent with only SKILL.md, references and the PNG. Run on design-crit, before it became product-designer Critique mode; re-run to confirm. F4: flagged placeholder contrast and input border, not placeholder-as-label. Found an unplanted real flaw: white text on orange/green/blue buttons appears below 4.5:1. F10 bundled with F8 as one Medium style finding, so its expected severity was corrected from High to Medium to match the skill's severity definitions (style drift adds noise; it does not block the need). |
+| 2026-10-13 | Partial (9/10 found) | Run on product-designer Critique mode. Missed F7, rated F5 Medium (min High), gave 14 findings (cap 10). critique.md tightened: count and merge before sending; failing the accessibility target is High even for small elements. |
+| 2026-10-13 | Pass (10/10) | Re-run after the fix: exactly 10 findings, F5 High, F7 found as button shape and radius inconsistency, F10 Medium. Contrast given as estimates ("appears", "roughly"). |
