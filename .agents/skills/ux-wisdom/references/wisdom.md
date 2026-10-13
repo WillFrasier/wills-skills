@@ -23,7 +23,7 @@ tags: [...] · evidence: strong|moderate|contested · status: approved|proposed
 - Source:
 ```
 
-Tags: `attention` `cognition` `decision` `interaction` `ia` `copy` `notification` `trust` `emotion` `ai` `multi-user` `onboarding` `a11y` `process`
+Tags: `attention` `cognition` `decision` `interaction` `ia` `copy` `notification` `trust` `ethics` `emotion` `ai` `multi-user` `onboarding` `a11y` `process`
 
 ---
 
