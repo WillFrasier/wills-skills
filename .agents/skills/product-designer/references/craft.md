@@ -2,7 +2,7 @@
 
 The senior designer's working knowledge. Use it to diagnose visual problems precisely and to prescribe moves with real values. These are defaults with reasons, not laws: break one when the need calls for it, and say why.
 
-Pixel values below are CSS px. Only apply them to a screenshot after calibrating its scale (see SKILL.md); otherwise use the relative form (ratios, scale steps, multiples of body size).
+Pixel values below are CSS px. Only apply them to a screenshot after calibrating its scale (see `critique.md`, Scale and measurement); otherwise use the relative form (ratios, scale steps, multiples of body size).
 
 ## Typography
 - **Scale by ratio, not by feel.** Derive sizes from a modular ratio:

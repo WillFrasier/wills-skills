@@ -16,6 +16,8 @@
 # - Files removed upstream are deleted only if unedited. User-added files stay.
 # - Skills managed by `npx skills` (listed in ~/.agents/.skill-lock.json) and
 #   existing non-matching entries in the Claude skills dir are left alone.
+# - Dependencies declared in a skill's frontmatter (metadata: requires: a, b)
+#   are installed too, once each.
 
 set -euo pipefail
 
@@ -144,7 +146,36 @@ install_skill() {
   fi
 }
 
+# Comma-separated skill names from `metadata: requires:` in a skill's frontmatter.
+requires_of() {
+  awk '
+    NR == 1 && $0 == "---" { fm = 1; next }
+    fm && $0 == "---" { exit }
+    fm && /^metadata:/ { md = 1; next }
+    fm && md && /^[^ ]/ { md = 0 }
+    fm && md && /^ +requires:/ { sub(/^ +requires: */, ""); print; exit }
+  ' "$SRC_DIR/$1/SKILL.md" | tr ',' '\n' | sed 's/^ *//; s/ *$//' | grep -v '^$' || true
+}
+
+INSTALLED=" "
+install_with_deps() {
+  local name="$1" dep
+  case "$INSTALLED" in *" $name "*) return ;; esac
+  INSTALLED="$INSTALLED$name "
+  if [ -f "$SRC_DIR/$name/SKILL.md" ]; then
+    while IFS= read -r dep; do
+      [ -n "$dep" ] || continue
+      if [ -d "$SRC_DIR/$dep" ]; then
+        install_with_deps "$dep"
+      else
+        echo "!! $name requires $dep, which is not in this repo" >&2
+      fi
+    done < <(requires_of "$name")
+  fi
+  install_skill "$name"
+}
+
 [ "$DRY_RUN" -eq 1 ] && echo "Dry run: no changes will be made."
-for name in "${SKILLS[@]}"; do install_skill "$name"; done
+for name in "${SKILLS[@]}"; do install_with_deps "$name"; done
 [ -d "$BACKUP_DIR" ] && echo "Backups of edited files: $BACKUP_DIR"
 exit 0

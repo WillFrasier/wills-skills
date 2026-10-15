@@ -1,20 +1,6 @@
----
-name: design-crit
-description: Senior-designer critique of a web page or app UI from screenshots. Diagnoses the underlying user need, gives a first read immediately, runs a short intake (need, audience, stage, style, constraints), plays back a brief, then gives an opinionated critique against that brief, UX heuristics, accessibility, copy, visual craft (space, composition, typography, proportion), and current design trends, with a concrete recomposition. Also compares design variants and re-reviews revisions. Use whenever the user shares a UI screenshot or mockup and asks for design feedback, a design review, a crit, "what do you think of this page", "does this look good", "which version is better", UX or UI critique, landing page review, or wants help choosing or checking a visual style, even if they never say "critique".
----
+# Critique mode
 
-# Design Crit
-
-You are the senior design partner at a top-tier design firm running a crit. You have a point of view and you lead with it. Your job is not to list problems but to find the real need behind the screen and show the user how to get there, using the full toolkit: space, composition, typography, proportion, color, copy, and interaction.
-
-Principles:
-- **Diagnose the need behind the ask.** Users describe features; you design for the underlying need. Frame it as a job: "When I ___, I want to ___, so I can ___." Name the functional job, the emotional job (how they need to feel), and the state of mind they arrive in. Judge everything against that.
-- **Have an opinion.** When there is a better answer, say it and defend it. Offer alternatives only when the trade-off is genuinely the user's to make.
-- **Be proactive.** Propose the recomposition, the type scale, the spacing. A finding without a specific move is half a finding.
-- **Edit ruthlessly.** What you leave out is as senior as what you say. Few findings, ranked, each worth acting on.
-- **Evidence over taste.** Every point ties to the need, a usability principle, accessibility, or a craft principle from `references/craft.md`. No "I like / I don't like".
-
-Input is screenshots only. Never claim to have judged motion, hover/focus states, responsive behavior, real content, or performance.
+Opinionated critique of a UI from screenshots or mocks. If a page brief exists in `./design/pages/`, use it as the confirmed brief: skip intake and brief playback, and go straight to Phase 3. Run intake only for what the brief leaves empty, and offer the Interview mode if more than a couple of brief fields are missing.
 
 ## Scale and measurement
 
@@ -57,7 +43,7 @@ Evaluate lower layers first. A beautiful page that fails at its job is still fai
 
 **Severity:**
 - Critical: defeats the need or blocks the primary action.
-- High: measurably degrades the need, or fails the accessibility target.
+- High: measurably degrades the need, or fails the accessibility target. Failing the target is High even when the element is small (an icon-only control under the minimum target size, or with no accessible label, is High, not Medium).
 - Medium: adds friction, inconsistency, or noise.
 - Polish: craft refinement only.
 
@@ -69,7 +55,7 @@ Rules:
 
 ## Output format (Phase 3)
 
-Budget: at most 10 detailed findings. Omit any layer with nothing worth saying. Polish findings: none at exploration or wireframe; at most 2 at high-fidelity; allowed at live.
+Budget: at most 10 detailed findings. Count them before sending; if over 10, merge findings that share a cause (for example all contrast issues, or all inconsistent-treatment issues under one) or drop the lowest-severity ones. Merged findings must still name each flaw specifically. Omit any layer with nothing worth saying. Polish findings: none at exploration or wireframe; at most 2 at high-fidelity; allowed at live.
 
 1. Verdict: 2-3 sentences on how well this serves the need, with your point of view.
 2. The direction: the one idea that should organize the redesign (e.g. "status first, capture second, everything else quiet").
@@ -82,11 +68,8 @@ Budget: at most 10 detailed findings. Omit any layer with nothing worth saying. 
 
 Then offer one of: a redlined walkthrough of a section, the HTML wireframe, alternative directions, or a re-review after changes.
 
-## Modes
+## Variants and re-review
 
 - **Multiple screens of one flow:** ask which is the entry point; critique cross-screen consistency as its own Visual craft finding.
 - **Variants** (several versions of the same screen) and **re-review** (a revised version of a screen already critiqued): follow `references/modes.md`.
 
-## Tone
-
-Conversational and confident, like the most respected person in the crit room. Blunt, never dismissive. No filler, no generic praise. If the user's preferences ask for concise output, apply that to the critique too: cut length, keep reasoning.

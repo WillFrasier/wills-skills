@@ -15,7 +15,8 @@ A collection of agent skills.
 | [`bert`](.agents/skills/bert/SKILL.md) | bert takes one task end-to-end — understand, spec, code, review, test, then ship a feature branch and open a PR. Use when the user says "bert", gives bert a task, or asks for a change to be implemented and delivered start-to-finish as a pull request. |
 | [`got-tests`](.agents/skills/got-tests/SKILL.md) | Review a pull request or branch diff and decide whether the changed code has enough unit tests to catch real bugs, then name the specific missing tests, each tied to a plausible bug it would catch. Language and framework agnostic. Use whenever the user asks if a PR has enough tests, wants a test gap or test quality review, asks "what could break", "are we missing tests", "is this safe to merge", or points at a diff, branch, or PR and cares about test protection, even if they never say "unit tests". Also use when reviewing a PR that changes behavior but touches few or no tests. |
 | [`proactive`](.agents/skills/proactive/SKILL.md) | Proactive mode, where the agent owns the task like a senior engineer, does everything it can itself, and stops only on the user's configured stop conditions. Use only when the user types /proactive or asks to turn on proactive mode, or when another skill tells you to load it. Never load it on your own initiative. |
-| [`design-crit`](.agents/skills/design-crit/SKILL.md) | Senior-designer critique of a web page or app UI from screenshots. Diagnoses the underlying user need, gives a first read immediately, runs a short intake (need, audience, stage, style, constraints), plays back a brief, then gives an opinionated critique against that brief, UX heuristics, accessibility, copy, visual craft (space, composition, typography, proportion), and current design trends, with a concrete recomposition. Also compares design variants and re-reviews revisions. Use whenever the user shares a UI screenshot or mockup and asks for design feedback, a design review, a crit, "what do you think of this page", "does this look good", "which version is better", UX or UI critique, landing page review, or wants help choosing or checking a visual style, even if they never say "critique". |
+| [`product-designer`](.agents/skills/product-designer/SKILL.md) | Senior product designer and customer advocate. Translates goals, vibe, and user needs into screens, components, and controls; decides what matters most on a card or page; reviews UI changes against what users need; critiques screenshots and mocks; and interviews the user to build a page brief. Use when the user asks what a page or component should show or prioritize, what features a page is missing for its audience, whether a UI change still meets user needs, for design feedback, a design review, a crit, "what do you think of this page", "does this look good", "which version is better", UX or UI critique, or to "interview me about this page" or build a page brief. Also use proactively after a change to UI code, before opening a PR, like a reviewer. Replaces `design-crit`. |
+| [`ux-wisdom`](.agents/skills/ux-wisdom/SKILL.md) | Shared library of hard-won UX and product design lessons with user psychology (attention, cognitive load, decisions, interaction, notifications, AI trust, shared spaces, accessibility), each with a detection signal and evidence rating. Loaded by product-designer and copy-writer. Use directly when the user asks what research or best practice says about a UX question, e.g. "is the three-click rule real", "how many notifications is too many", "how should AI suggestions show their reasoning". |
 
 ## Installing a skill
 
@@ -59,6 +60,21 @@ This copies each skill into `~/.agents/skills/` and links it into `~/.claude/ski
 ## After installing a skill
 
 Skills that need product-specific context ship exactly one swappable file, `references/app-context.md`, as a fill-in template. Replace it with your product's context: voice, audience, paths, data sources, brand tokens. It is the only app-specific file in each skill; everything else is product-agnostic. Some skills (e.g. `proactive`) ship working defaults in that file instead of an example, so edit it to taste rather than replace it.
+
+## Product design context (product-designer, copy-writer)
+
+These skills share one design folder in your product repo, `./design/` by default:
+
+```
+design/
+  context.md     product, audience, roles, vocabulary, voice, research links
+  pages/         one brief per page, built by product-designer's Interview mode
+  wisdom.md      product-specific lessons, which override ux-wisdom
+```
+
+`product-designer` offers to create it on first use. Briefs version with the UI they describe, so update a page's brief in the same PR that changes the page. Lessons learned in a session are proposed to `design/wisdom.md` for your approval; a lesson that recurs across products is promoted to `ux-wisdom` by a PR here.
+
+Skills can declare dependencies with `metadata: requires: <skill>` in their frontmatter; `scripts/install.sh` installs them automatically.
 
 ## Using a skill
 
